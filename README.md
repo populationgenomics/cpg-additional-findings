@@ -1,5 +1,3 @@
-# CPG Python Template
+# CPG Additional Findings
 
-Template repository based on the [CPG team-docs](https://github.com/populationgenomics/team-docs/blob/main/new_repository.md) content.
-
-This contains python and markdown linting configuration, and a github linting action.
+This repository contains code for the purpose of parsing [ACMG Reportable Variants](https://www.ncbi.nlm.nih.gov/clinvar/docs/acmg/) and identifying those within a target dataset, applying relevant rules relating to MOI to retain only variants with plausible clinical impact.
