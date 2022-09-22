@@ -70,6 +70,9 @@ def triple_protein_changes(protein_changes: list[str]) -> list[str]:
     rewritten = []
     for p_dot in protein_changes:
         p_match = SPECIFIC_P_DOT.match(p_dot)
+        if not p_match:
+            raise Exception(f'no RegEx match for p.: {p_match}')
+
         new_string = (
             f"{p_match.group('p')}"
             f"{AMINO_ACIDS[p_match.group('from')]}"
@@ -124,7 +127,7 @@ def main(input_file: str, output_file: str):
     process the input file
     """
 
-    parsed_content: dict[str, list[dict] | dict] = {
+    parsed_content: dict = {
         'metadata': [{'name': 'ACMG additional findings', 'version': 1.0}]
     }
     gene_id_map = read_json_from_path(ADDITIONAL_MAP)
